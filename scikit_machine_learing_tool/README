@@ -1,0 +1,29 @@
+# Handwritten Digit Recognition
+
+This repository contains a simple Python script for handwritten digit recognition using scikit-learn's SVM classifier. The script trains a Support Vector Machine on the digits dataset and predicts the values of handwritten digits.
+
+## Usage
+
+### Prerequisites
+
+- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) must be installed on your system.
+
+### Setup
+
+1. **Clone the repository:**
+
+    git clone https://github.com/mohamedatawfik/learning-analytics.git
+
+2. **Navigate to the project directory:**
+
+    cd learning-analytics/scikit_machine_learing_tool
+
+3. **Create and activate the Conda environment:**
+
+    conda env create -f environment.yml
+    conda activate digit-classification
+
+4. **Running the Script:**
+
+    python handwritten-digit-recognition.py
+
