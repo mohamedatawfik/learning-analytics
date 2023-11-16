@@ -1,0 +1,7 @@
+name: digit-classification
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - scikit-learn
+  - matplotlib
