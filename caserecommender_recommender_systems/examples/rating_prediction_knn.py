@@ -25,22 +25,6 @@ te = '../datasets/ml-100k/folds/0/test.dat'
 """
 
 # # Cross Validation
-recommender = UserKNN()
+recommender = ItemKNN()
 #
 CrossValidation(input_file=db, recommender=recommender, dir_folds=folds_path, header=1, k_folds=5, write_predictions='TRUE').compute()
-#
-# # # Simple
-## UserKNN(tr, te).compute()
-# # UserAttributeKNN(tr, te, metadata_file=metadata_user).compute()
-# # UserAttributeKNN(tr, te, similarity_file=sm_user).compute()
-
-"""
-
-    ItemKNN
-
-"""
-
-# # Cross Validation
-recommender = ItemKNN()
-
-CrossValidation(input_file=db, recommender=recommender, dir_folds=folds_path, header=1, k_folds=5).compute()

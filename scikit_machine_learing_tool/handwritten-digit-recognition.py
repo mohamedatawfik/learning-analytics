@@ -1,6 +1,3 @@
-# Author: Gael Varoquaux <gael dot varoquaux at normalesup dot org>
-# License: BSD 3 clause
-
 # Standard scientific Python imports
 import matplotlib.pyplot as plt
 
@@ -8,8 +5,11 @@ import matplotlib.pyplot as plt
 from sklearn import datasets, metrics, svm
 from sklearn.model_selection import train_test_split
 
+# Load the digits dataset
 digits = datasets.load_digits()
 
+
+# Plot a few examples of the handwritten digits from the training set
 _, axes = plt.subplots(nrows=1, ncols=4, figsize=(10, 3))
 for ax, image, label in zip(axes, digits.images, digits.target):
     ax.set_axis_off()
@@ -47,13 +47,16 @@ for ax, image, prediction in zip(axes, X_test, predicted):
 # Save the predicted images plot to a file
 plt.savefig('predicted_images_plot.png')
 
+# Print the classification report, including precision, recall, and F1-score
 print(
     f"Classification report for classifier {clf}:\n"
     f"{metrics.classification_report(y_test, predicted)}\n"
 )
 
+# Display the confusion matrix
 disp = metrics.ConfusionMatrixDisplay.from_predictions(y_test, predicted)
 disp.figure_.suptitle("Confusion Matrix")
 print(f"Confusion matrix:\n{disp.confusion_matrix}")
 
+# Show the plots
 plt.show()
