@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Budget Scatter Plot</title>
+
+    <!-- Include C3.js and its dependency D3.js from CDN -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+
+    <!-- Include C3.js stylesheet (for styling) from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css">
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+        //imagine you have a budgeting tool that visualizes your monthly expenses and income using a scatter plot. 
+        //Each data point represents a specific category of expenses (e.g., groceries, utilities, entertainment), and the x-axis represents your income, while the y-axis represents your expenses.
+        // Here's a modified example using placeholder data:
+        var chart = c3.generate({
+            data: {
+                xs: {
+                    groceries: 'income',
+                    utilities: 'income',
+                    entertainment: 'income',
+                    // ... other expense categories
+                },
+                columns: [
+                    ["income", 4000, 3500, 3000, 2500, 2000, 1500],
+                    ["groceries", 300, 250, 200, 150, 100, 50],
+                    ["utilities", 150, 120, 100, 80, 60, 40],
+                    ["entertainment", 200, 180, 150, 120, 100, 80],
+                    // ... other expenses
+                ],
+                type: 'scatter',
+                onmouseover: function (d) {
+                    // Highlight the expense category on hover
+                    chart.api.focus(d.id);
+                },
+                onmouseout: function (d) {
+                    // Restore color on mouseout
+                    chart.api.revert();
+                }
+            },
+            axis: {
+                x: {
+                    label: 'Monthly Income',
+                    tick: {
+                        fit: false
+                    }
+                },
+                y: {
+                    label: 'Expense Amount'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
